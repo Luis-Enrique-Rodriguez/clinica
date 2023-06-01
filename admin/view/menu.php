@@ -49,16 +49,6 @@
 <div class="row mx-auto w-40">
   <div class="col">
     <div class="card">
-      <img src="../../images/agenda.jpg" class="card-img-top img-thumbnail" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Agenda</h5>
-        <p class="card-text">Citas para el dia de hoy</p>
-        <a href="../agenda.php" class="btn btn-primary">Entrar</a>  
-    </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card">
       <img src="../../images/paciente.jpg" class="card-img-top img-thumbnail" alt="...">
       <div class="card-body">
         <h5 class="card-title">Pacientes</h5>
@@ -112,26 +102,7 @@
     </div>
     </div>
   </div>
-  <div class="col">
-    <div class="card">
-      <img src="../../images/estadisticas.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Ingresos/Egresos</h5>
-        <p class="card-text">Consulta las estadisticas del negocio</p>
-        <a href="#" class="btn btn-primary">Entrar</a>  
-    </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card">
-      <img src="../../images/configuracion.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Configuración</h5>
-        <p class="card-text">Configuracion de la pagina web</p>
-        <a href="#" class="btn btn-primary">Entrar</a>  
-    </div>
-    </div>
-  </div>
+
 </div>
 <br>
 </body>
