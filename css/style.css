@@ -1,0 +1,44 @@
+/* Login Form */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+/* Nav Bar */
+.navbar {
+    background-color: var(--primary);
+    border-bottom: solid 1px #ccc;
+    position: relative;
+    top: 0;
+    width: 100vw;
+    z-index: 9999;
+  }
+  
+  .navbar-brand {
+    color: var(--light);
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .navbar-nav .nav-link {
+     color: var(--light);
+  }
+  
+  .navbar-nav .nav-link:hover {
+    color: var(--light);
+    
+  }
+
+  .collapse{
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+  }
+
+  .nav-item{
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+  }
+
+  .card img {
+    max-width: 50px;
+  }
+  
