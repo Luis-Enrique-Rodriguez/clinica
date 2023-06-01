@@ -67,7 +67,7 @@
 <div class="row mx-auto w-40">
 <div class="card mb-3 ">
   <div class="row g-0 ">
-    <div class="col-md-4" style="height: 100px;">
+    <div class="col-md-4 mt-4" style=" width: 70px;">
       <img src="../../../clinica/images/informacion.jpg" class="img-fluid rounded-start" alt="...">
     </div>
     <div class="col-md-8">
@@ -83,7 +83,7 @@
 <br>
 <div class="card mb-3 ">
   <div class="row g-0 ">
-    <div class="col-md-4">
+    <div class="col-md-4 mt-4" style=" width: 70px;">
       <img src="../../../clinica/images/instrumentos.jpg" class="img-fluid rounded-start" alt="...">
     </div>
     <div class="col-md-8">
@@ -100,7 +100,7 @@
 <br>
 <div class="card mb-3 ">
   <div class="row g-0 ">
-    <div class="col-md-4">
+    <div class="col-md-4 mt-4" style="width: 70px;">
       <img src="../../../clinica/images/mapa.jpg" class="img-fluid rounded-start" alt="...">
     </div>
     <div class="col-md-8">
