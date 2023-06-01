@@ -37,7 +37,7 @@ switch ($action){
         $dataConsultorio = $consultorio->get(null);
         if (isset($_POST['enviar'])) {
             $data = $_POST['data'];
-            $id = $_POST['data']['id_paciente'];
+            $id = $_POST['data']['id'];
             $cantidad = $paciente->edit($id, $data);
             if ($cantidad) {
                 //$paciente->flash('success', 'Registro actualizado con éxito');

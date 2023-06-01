@@ -68,7 +68,6 @@ switch ($action){
 
         case 'task':
             //$proyecto->validatePrivilegio('Proyecto Leer');
-    
             $data = $historial->get($id);
             $data_historial = $historial->getTask($id);
             include('view/historial/informacion.php');

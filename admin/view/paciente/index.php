@@ -66,7 +66,7 @@
 
                             <td>
                                 <div class="btn-group" role="group" aria-label="Basic example">
-                                    <a href="paciente.php?action=edit&id=<?php echo $paciente["id_paciente"] ?>"
+                                <a href="paciente.php?action=edit&id=<?php echo $paciente["id_paciente"] ?>"
                                         type="button" class="btn btn-warning">Modificar</a>
                                     <a href="paciente.php?action=delete&id=<?php echo $paciente["id_paciente"] ?>"
                                         type="button" class="btn btn-danger">Eliminar</a>

@@ -1,11 +1,9 @@
 <h1>
     <?php echo ($action == 'edit') ? 'Modificar' : 'Nuevo'; ?> Paciente
 </h1>
-
 <form class="container-fluid" method="POST" action="paciente.php?action=<?php echo ($action); ?>"
     enctype="multipart/form-data">
-
-    <input type="hidden" name="data[id]" value=" <?php echo $id ?>">
+    <input type="hidden" name="data[id]" id="id_paciente" value=" <?php echo $id ?>">
 
     <div class="row">
         <div class="col-2">

@@ -73,7 +73,7 @@ class Paciente extends Sistema
         $sql = "UPDATE paciente SET nombre=:nombre, curp=:curp , rfc=:rfc, nacimiento=:nacimiento, telefono=:telefono, direccion=:direccion, codigo_postal=:codigo_postal, id_genero=:id_genero, id_tratamiento=:id_tratamiento, id_consultorio=:id_consultorio    
         where id_paciente= :id";
         $st = $this->db->prepare($sql);
-        $st->bindParam(":id", $id, PDO::PARAM_INT);
+        $st->bindParam(":id", $data['id'], PDO::PARAM_INT);
         $st->bindParam(":nombre", $data['nombre'], PDO::PARAM_STR);
         $st->bindParam(":curp", $data['curp'], PDO::PARAM_STR);
         $st->bindParam(":rfc", $data['rfc'], PDO::PARAM_STR);

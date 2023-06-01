@@ -1,5 +1,5 @@
 <h1 class="text-center">Informacion Historial Medico:
-    <?php echo $data[0]['paciente']; ?>
+    <?php echo $data[0]['id_paciente']; ?>
 </h1>
 <div class="container-fluid">
     <div class="row">
@@ -21,7 +21,7 @@
         </thead>
         <tbody>
             <?php $nReg = 0;
-            foreach ($data_Historial as $key => $informacion):
+            foreach ($data_historial[0] as $key => $informacion):
                 $nReg++; ?>
                 <tr>
                     <td scope="row">

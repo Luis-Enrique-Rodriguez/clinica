@@ -57,12 +57,14 @@ from paciente p
     {
         $this->db();
         $sql = "UPDATE historial_medico SET id_paciente =: id_paciente, id_doctor=:id_doctor, fecha =:fecha 
-        where id_historial= :id";
+        where id_historial= :id";   
+        var_dump($data);
+        exit;
         $st = $this->db->prepare($sql);
-        $st->bindParam(":id", $data['id'], PDO::PARAM_INT);
         $st->bindParam(":id_paciente", $data['id_paciente'], PDO::PARAM_INT);
         $st->bindParam(":id_doctor", $data['id_doctor'], PDO::PARAM_INT);
         $st->bindParam(":fecha", $data['fecha'], PDO::PARAM_STR);
+        $st->bindParam(":id", $data['id_historial'], PDO::PARAM_INT);
         $st->execute();
         $rc = $st->rowCount();
         return $rc;
@@ -83,14 +85,14 @@ from paciente p
     public function getTask($id = null){
         $this->db();
         if (is_null($id)) {
-            $sql = "select * from informacion_historial";
+            $sql = "select * from informacion_historial ";
             $st = $this->db->prepare($sql);
             $st->execute();
             $data = $st->fetchAll(PDO::FETCH_ASSOC);
         } else {
-            $sql = "select * informacion_historial";
+            $sql = "select * from informacion_historial";
             $st = $this->db->prepare($sql);
-            $st->bindParam(":id", $id, PDO::PARAM_INT);
+            // $st->bindParam(":id", $id, PDO::PARAM_INT);
             $st->execute();
             $data = $st->fetchAll(PDO::FETCH_ASSOC);
         }
