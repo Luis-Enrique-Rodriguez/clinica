@@ -66,6 +66,7 @@ switch ($action){
         }
         break;
 
+// Informacion Historial //
         case 'task':
             //$proyecto->validatePrivilegio('Proyecto Leer');
             $data = $historial->get($id);
@@ -75,7 +76,7 @@ switch ($action){
 
         case 'deletetask':
             $proyecto->validatePrivilegio('Proyecto Eliminar');
-    
+            
             $cantidad = $proyecto->deleteTask($id_tarea);
             if ($cantidad) {
                 $proyecto->flash('success', 'Registro con el id= ' . $id_tarea . ' eliminado con éxito');
@@ -90,44 +91,45 @@ switch ($action){
             }
             break;
     case 'newtask':
-        $proyecto->validatePrivilegio('Proyecto Crear');
-    
-        $data = $proyecto->get($id);
+        //$proyecto->validatePrivilegio('Proyecto Crear');
+            $dataPaciente = $paciente->get(null);
+
+        $data = $historial->get($id);
         if (isset($_POST['enviar'])) {
             $data2 = $_POST['data'];
-            $cantidad = $proyecto->newTask($id, $data2);
+            $cantidad = $historial->newTask($id, $data2);
             if ($cantidad) {
-                $proyecto->flash('success', 'Registro dado de alta con éxito');
+                //$historial->flash('success', 'Registro dado de alta con éxito');
     
             } else {
-                $proyecto->flash('danger', 'Algo fallo');
+                //$historial->flash('danger', 'Algo fallo');
             }
-            $data_historial = $proyecto->getTask($id);
-            include('views/proyecto/tarea.php');
+            $data_historial = $historial->getTask($id);
+            include('view/historial/informacion.php');
             } else {
-                include('views/proyecto/tarea_form.php');
+                include('view/historial/informacion_form.php');
             }
             //$data_historial = $proyecto->getTask($id);
             break;
 
     case 'edittask':
-        $proyecto->validatePrivilegio('Proyecto Actualizar');
-    
-        $data = $proyecto->get($id);
+        //$proyecto->validatePrivilegio('Proyecto Actualizar');
+        $dataHistorial = $historial->get(null);
+        $data = $historial->get($id);
         if (isset($_POST['enviar'])) {
             $data2 = $_POST['data'];
-            $id_tarea = $_POST['data']['id_tarea'];
-            $cantidad = $proyecto->editTask($id, $id_tarea, $data2);
+            $id_historial = $_POST['data']['id_historial'];
+            $cantidad = $historial->editTask($id, $id_historial, $data2);
             if ($cantidad) {
-                $proyecto->flash('success', 'Registro dado de alta con éxito');
+                //$historial->flash('success', 'Registro dado de alta con éxito');
             } else {
-                $proyecto->flash('danger', 'Algo fallo');
+                //$historial->flash('danger', 'Algo fallo');
             }
-            $data_historial = $proyecto->getTask($id);
-            include('views/proyecto/tarea.php');
+            $data_historial = $historial->getTask($id);
+            include('views/historial/informacion.php');
             } else {
-                $data_historial = $proyecto->getTaskOne($id_tarea);
-                include('views/proyecto/tarea_form.php');
+                $data_historial = $historial->getTaskOne($id_historial);
+                include('views/historial/informacion_form.php');
             }
             break;
 
