@@ -150,7 +150,7 @@ from paciente p
         $this->db();
         $sql = "UPDATE informacion_historial SET titulo = :titulo,
          descripcion=:descripcion where id_informacion= :id_informacion 
-         AND id_proyecto=:id";
+         AND id_historial=:id";
         $st = $this->db->prepare($sql);
         $st->bindParam(":id", $id, PDO::PARAM_INT);
         $st->bindParam(":id_informacion", $id_informacion, PDO::PARAM_INT);
