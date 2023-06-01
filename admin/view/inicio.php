@@ -67,7 +67,7 @@
 <div class="row mx-auto w-40">
 <div class="card mb-3 ">
   <div class="row g-0 ">
-    <div class="col-md-4">
+    <div class="col-md-4" style="height: 100px;">
       <img src="../../../clinica/images/informacion.jpg" class="img-fluid rounded-start" alt="...">
     </div>
     <div class="col-md-8">
