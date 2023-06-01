@@ -100,7 +100,7 @@ from paciente p
     public function deleteTask($id)
     {
         $this->db();
-        $sql = "DELETE FROM tarea WHERE id_tarea=:id";
+        $sql = "DELETE FROM informacion_historial WHERE id_informacion=:id";
         $st = $this->db->prepare($sql);
         $st->bindParam(":id", $id, PDO::PARAM_INT);
         $st->execute();
@@ -112,11 +112,13 @@ from paciente p
     public function newTask($id, $data)
     {
         $this->db();
-        $sql = "INSERT INTO tarea (id_proyecto, tarea, avance) VALUES (:id_proyecto, :tarea, :avance)";
+        $sql = "INSERT INTO informacion historial ( titulo, descripcion,fecha, id_historial,) VALUES (:titulo, :descripcion, :fecha, :id_historial)";
         $st = $this->db->prepare($sql);
-        $st->bindParam(":id_proyecto", $id, PDO::PARAM_INT);
-        $st->bindParam(":tarea", $data['tarea'], PDO::PARAM_STR);
-        $st->bindParam(":avance", $data['avance'], PDO::PARAM_INT);
+        $st->bindParam(":id_informacion", $data['id'], PDO::PARAM_INT);
+        $st->bindParam(":titulo", $data['titulo'], PDO::PARAM_STR);
+        $st->bindParam(":descripcion", $data['descripcion'], PDO::PARAM_STR);
+        $st->bindParam(":fecha", $data['fecha'], PDO::PARAM_STR);
+        $st->bindParam(":id_historial", $data['id_historial'], PDO::PARAM_INT);
         $st->execute();
 
         $rc = $st->rowCount();
@@ -130,10 +132,9 @@ from paciente p
         if (is_null($id)) {
             die("Ocurrio un error :c");
         } else {
-            $sql = "select * from tarea t left join proyecto p 
-            on p.id_proyecto = t.id_proyecto where t.id_tarea=:id";
+            $sql = "";
             $st = $this->db->prepare($sql);
-            $st->bindParam(":id", $id, PDO::PARAM_INT);
+            $st->bindParam(":id", $data['id']. PDO::PARAM_INT);
             $st->execute();
             $data = $st->fetchAll(PDO::FETCH_ASSOC);
         }
@@ -142,17 +143,19 @@ from paciente p
         return $data;
     }
 
-    public function editTask($id, $id_tarea, $data)
+    public function editTask($id, $id_informacion, $data)
     {
         $this->db();
-        $sql = "UPDATE tarea SET tarea = :tarea,
-         avance=:avance where id_tarea= :id_tarea 
+        $sql = "UPDATE informacion_historial SET titulo = :titulo,
+         descripcion=:descripcion where id_informacion= :id_informacion 
          AND id_proyecto=:id";
         $st = $this->db->prepare($sql);
         $st->bindParam(":id", $id, PDO::PARAM_INT);
-        $st->bindParam(":id_tarea", $id_tarea, PDO::PARAM_INT);
-        $st->bindParam(":tarea", $data['tarea'], PDO::PARAM_STR);
-        $st->bindParam(":avance", $data['avance'], PDO::PARAM_INT);
+        $st->bindParam(":id_informacion", $id_informacion, PDO::PARAM_INT);
+        $st->bindParam(":titulo", $data['titulo'], PDO::PARAM_STR);
+        $st->bindParam(":descripcion", $data['descripcion'], PDO::PARAM_STR);
+        $st->bindParam(":fecha", $data['fecha'], PDO::PARAM_STR);
+        $st->bindParam(":id_historial", $data['id_historial'], PDO::PARAM_INT);
         $st->execute();
 
         $rc = $st->rowCount();
