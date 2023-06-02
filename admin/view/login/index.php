@@ -1,9 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+</html>
+<script src="sweetalert2.all.min.js"></script>
+<link rel="stylesheet" href="sweetalert2.min.css">
+
+
 <section class="vh-100">
   <div class="container py-5 h-100">
     <div class="row d-flex align-items-center justify-content-center h-100">
       <div class="col-md-8 col-lg-7 col-xl-6">
         <img src="../images/login.jpg" 
-        class="img-fluid" alt="Phone Image">
+        class="img-fluid" alt="">
       </div>
       <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
         <form method="POST" action="login.php?action=login">
@@ -26,10 +43,10 @@
           </div>
 
           <!-- Submit button -->
-          <input type="submit" name="enviar" value="Ingresar" class="btn btn-primary btn-lg btn-block">
+          <input type="submit" name="enviar" value="Ingresar" class="btn btn-primary btn-lg btn-block" >
           
-          
-          <script src="../js/alerta.js"></script>
+       
+
         </form>
       </div>
     </div>

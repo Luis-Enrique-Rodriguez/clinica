@@ -1,13 +1,17 @@
+
+
 <?php
 include('controllers/sistema.php');
 include_once("view/img.php");
 
 $action = (isset($_GET['action'])) ? $_GET['action'] : "login";
 
+
+
 switch($action){
     case 'logout':
         $sistema->logout();
-        include_once('view/login/index.php');
+        //include_once('view/login/index.php');
         break;
     
     case 'forgot':
@@ -71,7 +75,7 @@ switch($action){
             $login = $sistema->login($data['correo'], $data['contrasena']);
             if($login){
                 header("Location: view/menu.php");
-
+                
             }else{
                 include_once('view/login/index.php');
                 
@@ -80,5 +84,7 @@ switch($action){
         include_once('view/login/index.php');
         break;
 }
+
+
 
 ?>

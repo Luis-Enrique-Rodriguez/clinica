@@ -49,6 +49,8 @@ class Sistema{
     public function logout(){
         unset($_SESSION['logeado']);
         session_destroy();
+        header("Location: ../view/login/index.php");
+        exit();
     }
 
     public function forgot($destinatario, $token){
@@ -170,3 +172,4 @@ class Sistema{
 
 $sistema = new Sistema;
 ?>
+
