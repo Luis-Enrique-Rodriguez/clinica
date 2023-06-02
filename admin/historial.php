@@ -18,11 +18,11 @@ switch ($action){
             $data = $_POST['data']['id'];
             $cantidad = $historial->new($data);
             if ($cantidad) {
-         //       $historial->flash('success', 'Registro dado de alta con éxito');
+              $historial->alerta('success', 'Registro dado de alta con éxito');
                 $data = $historial->get(null);
                 include('view/historial/index.php');
             } else {
-                //$proyecto->flash('danger', 'Algo fallo');
+                $historial->alerta('danger', 'Algo fallo');
                 include('view/historial/form.php');
             }
         } else {
@@ -39,11 +39,11 @@ switch ($action){
             $id = $_POST['data']['id'];
             $cantidad = $historial->edit($id, $data);
             if ($cantidad) {
-                //$historial->flash('success', 'Registro actualizado con éxito');
+                $historial->alerta('success', 'Registro actualizado con éxito');
                 $data = $historial->get(null);
                 include('view/historial/index.php');
             } else {
-                //$historial->flash('danger', 'Algo fallo');
+                $historial->alerta('danger', 'Algo fallo');
                 $data = $historial->get(null);
                 include('view/historial/index.php');
             }
@@ -56,11 +56,11 @@ switch ($action){
     case 'delete':
         $cantidad = $historial->delete($id);
         if ($cantidad) {
-                //$historial->flash('success', 'Registro con el id= ' . $id . ' eliminado con éxito');
+                $historial->alerta('success', 'Registro con el id= ' . $id . ' eliminado con éxito');
             $data = $historial->get(null);
             include('view/historial/index.php');
         } else {
-            //$historial->flash('danger', 'Algo fallo');
+            $historial->alerta('danger', 'Algo fallo');
             $data = $historial->get(null);
             include('view/historial/index.php');
         }
@@ -79,12 +79,12 @@ switch ($action){
             
             $cantidad = $proyecto->deleteTask($id_tarea);
             if ($cantidad) {
-                $proyecto->flash('success', 'Registro con el id= ' . $id_tarea . ' eliminado con éxito');
+                $proyecto->alerta('success', 'Registro con el id= ' . $id_tarea . ' eliminado con éxito');
                 $data = $proyecto->get($id);
                 $data_historial = $proyecto->getTask($id);
                 include('views/proyecto/tarea.php');
             } else {
-                $proyecto->flash('danger', 'Algo fallo');
+                $proyecto->alerta('danger', 'Algo fallo');
                 $data = $proyecto->get($id);
                 $data_historial = $proyecto->getTask($id);
                 include('views/proyecto/tarea.php');
@@ -99,10 +99,10 @@ switch ($action){
             $data2 = $_POST['data'];
             $cantidad = $historial->newTask($id, $data2);
             if ($cantidad) {
-                //$historial->flash('success', 'Registro dado de alta con éxito');
+                $historial->alerta('success', 'Registro dado de alta con éxito');
     
             } else {
-                //$historial->flash('danger', 'Algo fallo');
+                $historial->alerta('danger', 'Algo fallo');
             }
             $data_historial = $historial->getTask($id);
             include('view/historial/informacion.php');
@@ -121,9 +121,9 @@ switch ($action){
             $id_historial = $_POST['data']['id_historial'];
             $cantidad = $historial->editTask($id, $id_historial, $data2);
             if ($cantidad) {
-                //$historial->flash('success', 'Registro dado de alta con éxito');
+                $historial->alerta('success', 'Registro dado de alta con éxito');
             } else {
-                //$historial->flash('danger', 'Algo fallo');
+                $historial->alerta('danger', 'Algo fallo');
             }
             $data_historial = $historial->getTask($id);
             include('views/historial/informacion.php');

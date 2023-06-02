@@ -168,6 +168,12 @@ class Sistema{
         }
         return $cantidad;
     }
+
+    public function alerta($color, $msg)
+    {
+        include('view/alerta.php');
+    }
+
 }
 
 $sistema = new Sistema;

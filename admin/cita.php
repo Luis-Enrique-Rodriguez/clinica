@@ -18,11 +18,11 @@ switch ($action){
             $data = $_POST['data'];
             $cantidad = $cita->new($data);
             if ($cantidad) {
-         //       $historial->flash('success', 'Registro dado de alta con éxito');
+                $cita->alerta('success', 'Registro dado de alta con éxito');
                 $data = $cita->get(null);
                 include('view/cita/index.php');
             } else {
-                //$proyecto->flash('danger', 'Algo fallo');
+                $cita->alerta('danger', 'Algo fallo');
                 include('view/cita/form.php');
             }
         } else {
@@ -40,11 +40,11 @@ switch ($action){
             $id = $_POST['data']['id'];
             $cantidad = $cita->edit($id, $data);
             if ($cantidad) {
-                //$cita->flash('success', 'Registro actualizado con éxito');
+                $cita->alerta('success', 'Registro actualizado con éxito');
                 $data = $cita->get(null);
                 include('view/cita/index.php');
             } else {
-                //$cita->flash('danger', 'Algo fallo');
+                $cita->alerta('danger', 'Algo fallo');
                 $data = $cita->get(null);
                 include('view/cita/index.php');
             }
@@ -57,11 +57,11 @@ switch ($action){
     case 'delete':
         $cantidad = $cita->delete($id);
         if ($cantidad) {
-                //$cita->flash('success', 'Registro con el id= ' . $id . ' eliminado con éxito');
+                $cita->alerta('success', 'Registro con el id= ' . $id . ' eliminado con éxito');
             $data = $cita->get(null);
             include('view/cita/index.php');
         } else {
-            //$cita->flash('danger', 'Algo fallo');
+            $cita->alerta('danger', 'Algo fallo');
             $data = $cita->get(null);
             include('view/cita/index.php');
         }

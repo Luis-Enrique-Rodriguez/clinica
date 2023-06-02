@@ -11,11 +11,11 @@ switch ($action) {
             $data = $_POST['data'];
             $cantidad = $usuario->new($data);
             if ($cantidad) {
-                //$usuario->flash('success', 'Registro dado de alta con éxito');
+                $usuario->alerta('success', 'Registro dado de alta con éxito');
                 $data = $usuario->get(null);
                 include('view/usuario/index.php');
             } else {
-                //$usuario->flash('danger', 'Algo fallo');
+                $usuario->alerta('danger', 'Algo fallo');
                 include('view/usuario/form.php');
             }
         } else {
@@ -28,11 +28,11 @@ switch ($action) {
             $id = $_POST['data']['id_usuario'];
             $cantidad = $usuario->edit($id, $data);
             if ($cantidad) {
-                //$usuario->flash('success', 'Registro actualizado con éxito');
+                $usuario->alerta('success', 'Registro actualizado con éxito');
                 $data = $usuario->get(null);
                 include('view/usuario/index.php');
             } else {
-                //$usuario->flash('danger', 'Algo fallo');
+                $usuario->alerta('danger', 'Algo fallo');
                 $data = $usuario->get(null);
                 include('view/usuario/index.php');
             }
@@ -44,11 +44,11 @@ switch ($action) {
     case 'delete':
         $cantidad = $usuario->delete($id);
         if ($cantidad) {
-            //$usuario->flash('success', 'Registro con el id= ' . $id . ' eliminado con éxito');
+            $usuario->alerta('success', 'Registro con el id= ' . $id . ' eliminado con éxito');
             $data = $usuario->get(null);
             include('view/usuario/index.php');
         } else {
-            //$usuario->flash('danger', 'Algo fallo');
+            $usuario->alerta('danger', 'Algo fallo');
             $data = $usuario->get(null);
             include('view/usuario/index.php');
         }

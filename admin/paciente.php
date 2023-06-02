@@ -18,12 +18,12 @@ switch ($action){
             $data = $_POST['data'];
             $cantidad = $paciente->new($data);
             if ($cantidad) {
-         //       $paciente->flash('success', 'Registro dado de alta con éxito');
+              $paciente->alerta('success', 'Registro dado de alta con éxito');
                 $data = $paciente->get(null);
                 include('view/paciente/index.php');
             } else {
                 
-                //$proyecto->flash('danger', 'Algo fallo');
+                $paciente->alerta('danger', 'Algo fallo');
                 include('view/paciente/form.php');
             }
         } else {
@@ -40,11 +40,11 @@ switch ($action){
             $id = $_POST['data']['id'];
             $cantidad = $paciente->edit($id, $data);
             if ($cantidad) {
-                //$paciente->flash('success', 'Registro actualizado con éxito');
+                $paciente->alerta('success', 'Registro actualizado con éxito');
                 $data = $paciente->get(null);
                 include('view/paciente/index.php');
             } else {
-                //$paciente->flash('danger', 'Algo fallo');
+                $paciente->alerta('danger', 'Algo fallo');
                 $data = $paciente->get(null);
                 include('view/paciente/index.php');
             }
@@ -57,11 +57,11 @@ switch ($action){
     case 'delete':
         $cantidad = $paciente->delete($id);
         if ($cantidad) {
-            //$paciente->flash('success', 'Registro con el id= ' . $id . ' eliminado con éxito');
+            $paciente->alerta('success', 'Registro con el id= ' . $id . ' eliminado con éxito');
             $data = $paciente->get(null);
             include('view/paciente/index.php');
         } else {
-            //$paciente->flash('danger', 'Algo fallo');
+            $paciente->alerta('danger', 'Algo fallo');
             $data = $paciente->get(null);
             include('view/paciente/index.php');
         }

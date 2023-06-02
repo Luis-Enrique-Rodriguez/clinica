@@ -20,11 +20,11 @@ switch ($action){
             $data = $_POST['data'];
             $cantidad = $doctor->new($data);
             if ($cantidad) {
-         //       $doctor->flash('success', 'Registro dado de alta con éxito');
+          $doctor->alerta('success', 'Registro dado de alta con éxito');
                 $data = $doctor->get(null);
                 include('view/doctor/index.php');
             } else {
-                //$proyecto->flash('danger', 'Algo fallo');
+                $doctor->alerta('danger', 'Algo fallo');
                 include('view/doctor/form.php');
             }
         } else {
@@ -43,11 +43,11 @@ switch ($action){
             $id = $_POST['data']['id'];
             $cantidad = $doctor->edit($id, $data);
             if ($cantidad) {
-                //$doctor->flash('success', 'Registro actualizado con éxito');
+        $doctor->alerta('success', 'Registro actualizado con éxito');
                 $data = $doctor->get(null);
                 include('view/doctor/index.php');
             } else {
-                //$doctor->flash('danger', 'Algo fallo');
+        $doctor->alerta('danger', 'Algo fallo');
                 $data = $doctor->get(null);
                 include('view/doctor/index.php');
             }
@@ -60,11 +60,11 @@ switch ($action){
     case 'delete':
         $cantidad = $doctor->delete($id);
         if ($cantidad) {
-            //$doctor->flash('success', 'Registro con el id= ' . $id . ' eliminado con éxito');
+    $doctor->alerta('success', 'Registro con el id= ' . $id . ' eliminado con éxito');
             $data = $doctor->get(null);
             include('view/doctor/index.php');
         } else {
-            //$doctor->flash('danger', 'Algo fallo');
+    $doctor->alerta('danger', 'Algo fallo');
             $data = $doctor->get(null);
             include('view/doctor/index.php');
         }
