@@ -1,5 +1,3 @@
-
-
 <?php
 include('controllers/sistema.php');
 include_once("view/img.php");
