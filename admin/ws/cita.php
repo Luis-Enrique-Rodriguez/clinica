@@ -1,12 +1,9 @@
 <?php
 header('Content-Type: application/json; charset=utf-8');
-include_once(__DIR__ ."../controllers/sistema.php");
-require_once(__DIR__."../controllers/cita.php");
-require_once(__DIR__."../controllers/paciente.php");
-require_once(__DIR__."../controllers/doctor.php");
-require_once(__DIR__."../controllers/consultorio.php");
+include_once("/wamp64/www/clinica/admin/controllers/cita.php");
 $action = $_SERVER['REQUEST_METHOD'];
 $id = isset($_GET['id']) ? $_GET['id'] : NULL;
+
 switch ($action) {
     case 'DELETE':
         $data['mensaje'] = "No existe el cita.";

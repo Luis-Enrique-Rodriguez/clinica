@@ -1,8 +1,6 @@
 <?php
 header('Content-Type: application/json; charset=utf-8');
-include_once(__DIR__ ."../controllers/sistema.php");
-
-require_once("../controllers/doctor.php");
+include_once("/wamp64/www/clinica/admin/controllers/doctor.php");
 
 $action = $_SERVER['REQUEST_METHOD'];
 $id = isset($_GET['id']) ? $_GET['id'] : NULL;
