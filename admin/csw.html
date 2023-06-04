@@ -4,8 +4,10 @@
   <title>Obtener datos de API con Fetch</title>
   <script>
     // Función para obtener los datos de la API
-    function obtenerDatos() {
-      fetch('http://localhost/clinica/ws/doctor.php') // Reemplaza la URL con la de tu API local
+    function ObtenerDatos() {
+      fetch('http://localhost/clinica/admin/ws/doctor.php',{method:'GET',headers:{
+        'Content-Type': 'application/json'
+      }}) // Reemplaza la URL con la de tu API local
         .then(response => response.json())
         .then(data => {
           // Manipula los datos obtenidos de la API
@@ -17,8 +19,22 @@
         });
     }
 
-    function obtenerDatos() {
-      fetch('http://localhost/clinica/ws/doctor.php') // Reemplaza la URL con la de tu API local
+    function EntrarDatos() {
+        body = new FormData()
+        body.append('data[nombre]','Carlos Aguilar Ordoñez')
+        body.append('data[foto]','')
+        body.append('data[curp]','AGOC971215HGTKLI00')
+        body.append('data[rfc]','AGOC971215MLN')
+        body.append('data[direccion]','Matamoros tamaulipás')
+        body.append('data[codigo_postal]','65478')
+        body.append('data[telefono]','4613456657')
+        body.append('data[cedula_profesional]','765897')
+        body.append('data[id_genero]',1)
+        body.append('data[id_usuario]',2)
+        body.append('data[id_especialidad]',3)
+        body.append('data[id_consultorio]',1)
+        
+      fetch('http://localhost/clinica/admin/ws/doctor.php',{method: 'POST',body:body}) // Reemplaza la URL con la de tu API local
         .then(response => response.json())
         .then(data => {
           // Manipula los datos obtenidos de la API
@@ -30,8 +46,8 @@
         });
     }
 
-    function obtenerDatos() {
-      fetch('http://localhost/clinica/ws/doctor.php') // Reemplaza la URL con la de tu API local
+    function EliminarDatos() {
+      fetch('http://localhost/clinica/admin/ws/doctor?id=8',{method: 'DELETE'}) // Reemplaza la URL con la de tu API local
         .then(response => response.json())
         .then(data => {
           // Manipula los datos obtenidos de la API
@@ -45,6 +61,10 @@
   </script>
 </head>
 <body>
-  <button onclick="obtenerDatos()">Obtener datos</button>
+  <button onclick="ObtenerDatos()">Obtener datos</button>
+  <br>
+  <button onclick="EntrarDatos()">Meter datos</button>
+  <br>
+  <button onclick="EliminarDatos()">Eliminar datos</button>
 </body>
 </html>
