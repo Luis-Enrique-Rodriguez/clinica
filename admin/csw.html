@@ -5,7 +5,33 @@
   <script>
     // Función para obtener los datos de la API
     function obtenerDatos() {
-      fetch('http://localhost/clinica/doctor.php') // Reemplaza la URL con la de tu API local
+      fetch('http://localhost/clinica/ws/doctor.php') // Reemplaza la URL con la de tu API local
+        .then(response => response.json())
+        .then(data => {
+          // Manipula los datos obtenidos de la API
+          console.log(data);
+          // Aquí puedes hacer lo que quieras con los datos, como mostrarlos en la página HTML
+        })
+        .catch(error => {
+          console.error('Ha ocurrido un error', error);
+        });
+    }
+
+    function obtenerDatos() {
+      fetch('http://localhost/clinica/ws/doctor.php') // Reemplaza la URL con la de tu API local
+        .then(response => response.json())
+        .then(data => {
+          // Manipula los datos obtenidos de la API
+          console.log(data);
+          // Aquí puedes hacer lo que quieras con los datos, como mostrarlos en la página HTML
+        })
+        .catch(error => {
+          console.error('Ha ocurrido un error', error);
+        });
+    }
+
+    function obtenerDatos() {
+      fetch('http://localhost/clinica/ws/doctor.php') // Reemplaza la URL con la de tu API local
         .then(response => response.json())
         .then(data => {
           // Manipula los datos obtenidos de la API
