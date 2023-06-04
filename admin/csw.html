@@ -12,6 +12,8 @@
         .then(data => {
           // Manipula los datos obtenidos de la API
           console.log(data);
+          const variable = document.getElementById("datos");
+          variable.textContent=JSON.stringify(data,null,2);
           // Aquí puedes hacer lo que quieras con los datos, como mostrarlos en la página HTML
         })
         .catch(error => {
@@ -39,6 +41,8 @@
         .then(data => {
           // Manipula los datos obtenidos de la API
           console.log(data);
+          const variable = document.getElementById("datos");
+          variable.textContent=JSON.stringify(data,null,2);
           // Aquí puedes hacer lo que quieras con los datos, como mostrarlos en la página HTML
         })
         .catch(error => {
@@ -52,6 +56,8 @@
         .then(data => {
           // Manipula los datos obtenidos de la API
           console.log(data);
+          const variable = document.getElementById("datos");
+          variable.textContent=JSON.stringify(data,null,2);
           // Aquí puedes hacer lo que quieras con los datos, como mostrarlos en la página HTML
         })
         .catch(error => {
@@ -61,10 +67,12 @@
   </script>
 </head>
 <body>
-  <button onclick="ObtenerDatos()">Obtener datos</button>
-  <br>
-  <button onclick="EntrarDatos()">Meter datos</button>
-  <br>
-  <button onclick="EliminarDatos()">Eliminar datos</button>
+    <button onclick="ObtenerDatos()">Obtener datos</button>
+    <br>
+    <button onclick="EntrarDatos()">Meter datos</button>
+    <br>
+    <button onclick="EliminarDatos()">Eliminar datos</button>
+    <h2>Datos: </h2>
+    <pre id="datos"></pre>
 </body>
 </html>
