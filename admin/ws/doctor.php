@@ -33,11 +33,25 @@ switch ($action) {
         }
         break;
     case 'GET':
+        
     default:
-        if (is_null($id))
-            $data = $doctor->get();
-        else
+        if (is_null($id)) {
+            $reemplazo = str_replace("/clinica/admin/ws/doctor/", "", $_SERVER['REQUEST_URI']);
+            $reemplazo = str_replace("\n", "", $reemplazo);
+            if($_SERVER['REQUEST_URI'] == "/clinica/admin/ws/doctor/") {
+                $data = "No has introducido un id valido";
+            }
+            else if($_SERVER['REQUEST_URI'] == "/clinica/admin/ws/doctor/".$reemplazo){
+                $data = $doctor->get(intval($reemplazo));
+                if($data == [])
+                    $data = "No existe un doctor con el id...";
+            }
+            else
+                $data = $doctor->get();
+        }
+        else {
             $data = $doctor->get($id);
+        }
         break;
 }
 $data = json_encode($data);

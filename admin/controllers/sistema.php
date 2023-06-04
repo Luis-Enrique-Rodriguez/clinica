@@ -49,7 +49,7 @@ class Sistema{
     public function logout(){
         unset($_SESSION['logeado']);
         session_destroy();
-        header("Location: ../view/login/index.php");
+        header("Location: index.php");
         exit();
     }
 
